@@ -38,6 +38,11 @@
 
 }
 
+.boxes img {
+    height: 70px;
+    margin: auto;
+}
+
 .reset {
     margin-top: 10px;
     size: 70px;
