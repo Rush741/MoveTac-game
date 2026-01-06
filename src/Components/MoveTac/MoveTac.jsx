@@ -12,29 +12,61 @@ let boxes = [
 const MoveTac = () => {
 
     let [curr, setCurr] = useState(0);
-    let [movePhase, setMovePhase] = useState(false);
+    let [gamePhase, setGamePhase] = useState("Placement"); //or "Movement"
     let [lock, setLock] = useState(false);
     let titleRef = useRef(null);
 
     const playMove = (e, r, c) => {
 
-        if(lock || movePhase) {
-            return 0;
-            //nothing for now
-        } else {
-            if(boxes[r][c]!=="") return 0;
-
-            if(curr%2 === 0) {
-                boxes[r][c] = "x";
-                e.target.innerHTML = `<img src="${cross_icon}" />`;
+        if(gamePhase === "Placement") { // PLACEMENT PHASE
+            
+            if(lock) {
+                return 0;
+            
+            } else {
+            
+                if(boxes[r][c]!=="") return 0;
+    
+                if(curr%2 === 0) {
+                    boxes[r][c] = "x";
+                    e.target.innerHTML = `<img src="${cross_icon}" />`;
+                }
+                else {
+                    boxes[r][c] = "o";
+                    e.target.innerHTML = `<img src="${circle_icon}" />`;
+                }
+    
             }
-            else {
-                boxes[r][c] = "o";
-                e.target.innerHTML = `<img src="${circle_icon}" />`;
+
+        } else if(gamePhase === "Movement") { // MOVEMENT PHASE
+
+            let currPlayer = (curr%2 === 0)? "x" : "o";
+
+            if(boxes[r][c] === currPlayer) { //currMove box
+
+                //glow the box
+                //and show possible moves l r u d
+
+            } else if(boxes[r][c] === "") { //empty box
+
+                //if(possible move box) {
+                // } else {
+                // }
+
+            } else { //opponent box
+
+                //unglow everything
+
             }
 
+
+        } else { //ERROR
+            console.log("wrong gamePhaseError");
         }
+
         setCurr(++curr);
+
+        if(curr === 6) setGamePhase("Movement"); 
 
         checkWin();
     }
@@ -90,6 +122,7 @@ const MoveTac = () => {
         });
         titleRef.current.innerHTML = "Move Tac";
         setCurr(0);
+        setGamePhase("Placement");
     }
 
   return (
