@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# 🎮 **MoveTac**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![MoveTac gameplay](./assets/movetac-demo.gif)
 
-## Available Scripts
+> **Placement phase → Movement phase → Win**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🧠 **What is MoveTac?**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**MoveTac** is a **strategic twist on Tic Tac Toe**, built with **React**.
+After placing 3 pieces each, players **move their existing pieces** to form winning lines, adding **state management and turn-based logic** beyond the classic game.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🎯 **Gameplay Summary**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Board:** 3 × 3
+* **Players:** X and O
+* **Phases:**
 
-### `npm run build`
+  * **Placement Phase:** Each player places **3 pieces**
+  * **Movement Phase:** Players move **one piece per turn**
+* **Allowed Moves:** Up, Down, Left, Right *(no diagonals)*
+* **Win Condition:** Three in a row (horizontal, vertical, or diagonal)
+* Winning can occur in **either phase**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✨ **Key Features**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* 🔄 Two-phase game logic (Placement → Movement)
+* ✨ Selected piece glow
+* ✅ Valid move highlighting
+* ❌ Illegal move prevention
+* ⚛️ Fully **state-driven React UI** 
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠️ **Tech Stack**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* **React** (Hooks)
+* **JavaScript (ES6+)**
+* **HTML**
+* **CSS**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚀 **Run Locally**
 
-## Learn More
+```bash
+git clone https://github.com/your-username/movetac.git
+cd movetac
+npm install
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+App runs at:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+http://localhost:3000
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🧩 **What This Project Demonstrates**
 
-### Analyzing the Bundle Size
+* Managing **complex UI state** in React
+* Turn-based game design
+* Multi-phase rule enforcement
+* Conditional rendering based on state
+* Clean separation of logic and UI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🔮 **Future Enhancements**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* 🎞️ Smooth movement animations
+* 🌐 Multiplayer support
+* 📱 Mobile responsiveness
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## ⭐ **Feedback**
 
-### Deployment
+If you found this project interesting, feel free to ⭐ the repo!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
