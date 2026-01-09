@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react';
+import {useState} from 'react';
 import "./MoveTac.css";
 import cross_icon from "../Assets/cross.png";
 import circle_icon from "../Assets/circle.png";
@@ -15,23 +15,24 @@ const MoveTac = () => {
     let [gamePhase, setGamePhase] = useState("Placement"); //or "Movement"
     let [lock, setLock] = useState(false);
     let [selected, setSelected] = useState(null);
-    let titleRef = useRef(null);
+    let [winner, setWinner] = useState(null);
 
     const playMove = (e, r, c) => {
 
         if(lock) return 0;
         
         if(gamePhase === "Placement") { // PLACEMENT PHASE  
-        
+            
             if(boxes[r][c]!=="") return 0;
-
+            
             if(curr%2 === 0) {
                 boxes[r][c] = "x";
             }
             else {
                 boxes[r][c] = "o";
             }
-                
+            
+            checkWin();
             setCurr(++curr);
             
         } else if(gamePhase === "Movement") { // MOVEMENT PHASE
@@ -74,7 +75,6 @@ const MoveTac = () => {
 
         if(curr === 6) setGamePhase("Movement"); 
 
-        checkWin();
     }
 
     const isValidMove = (r, c) => {
@@ -120,7 +120,7 @@ const MoveTac = () => {
 
     const pauseGame = (ch) => {
         setLock(true);
-        titleRef.current.innerHTML = `Congratulations: Player <img src="${ch==="x"? cross_icon: circle_icon}" /> wins!`;
+        setWinner(ch);
     }
 
     const reset = () => {
@@ -130,7 +130,7 @@ const MoveTac = () => {
             ["", "", ""],
             ["", "", ""]
         ];
-        titleRef.current.innerHTML = "Move Tac";
+        setWinner(null);
         setCurr(0);
         setSelected(null);
         setGamePhase("Placement");
@@ -139,7 +139,9 @@ const MoveTac = () => {
   return (
     <div>
         <div className="container">
-            <h1 className="title" ref={titleRef}>Move Tac</h1>
+            <h1 className="title">
+            {winner ? (<>Congratulations: Player <img src={winner==="x"?cross_icon:circle_icon} alt="winner_icon"/> wins!</>
+  ) : "Move Tac"}</h1>
             <div className="board">
                 <div className="row1">
                     <div className={`boxes 
