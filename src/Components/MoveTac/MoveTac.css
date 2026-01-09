@@ -49,12 +49,19 @@
     margin: auto;
 }
 
-.boxes-a {
+.glow {
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
   border: 2px solid rgb(140, 218, 136);
   transform: scale(1.02);
   margin-bottom: 6px;
 }
+
+.boxes.valid-move {
+  background: rgba(0, 255, 0, 0.15);
+  box-shadow: inset 0 0 48px lime;
+  cursor: pointer;
+}
+
 
 
 .reset {
