@@ -1,6 +1,6 @@
 # 🎮 **MoveTac**
 
-![MoveTac gameplay](./assets/movetac-demo.gif)
+![MoveTac gameplay](.\src\Components\Assets\movetac-demo.gif)
 
 > **Placement phase → Movement phase → Win**
 
