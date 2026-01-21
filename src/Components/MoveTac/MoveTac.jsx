@@ -1,13 +1,13 @@
-import {useState} from 'react';
+import { useState } from "react";
 import "./MoveTac.css";
-import cross_icon from "../Assets/cross.png";
-import circle_icon from "../Assets/circle.png";
+import cross_icon from "./Assets/cross.png";
+import circle_icon from "./Assets/circle.png";
 
 let boxes = [
     ["", "", ""],
     ["", "", ""],
     ["", "", ""]
-]
+];
 
 const MoveTac = () => {
 
@@ -37,7 +37,7 @@ const MoveTac = () => {
             
         } else if(gamePhase === "Movement") { // MOVEMENT PHASE
             
-            let currPlayer = (curr%2 === 0)? "x" : "o";
+            let currPlayer = (curr % 2 === 0)? "x" : "o";
             
             if(boxes[r][c] === currPlayer) { //currMove box
                 
@@ -137,7 +137,7 @@ const MoveTac = () => {
     }
 
   return (
-    <div>
+    <div className="movetac-game">
         <div className="container">
             <h1 className="title">
             {winner ? (<>Congratulations: Player <img src={winner==="x"?cross_icon:circle_icon} alt="winner_icon"/> wins!</>
