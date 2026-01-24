@@ -140,7 +140,7 @@ const MoveTac = () => {
     <div className="movetac-game">
         <div className="container">
             <h1 className="title">
-            {winner ? (<>Congratulations: Player <img src={winner==="x"?cross_icon:circle_icon} alt="winner_icon"/> wins!</>
+            {winner ? (<><span>Congratulations: </span>Player <img src={winner==="x"?cross_icon:circle_icon} alt="winner_icon"/> wins!</>
   ) : "Move Tac"}</h1>
             <div className="board">
                 <div className="row1">
