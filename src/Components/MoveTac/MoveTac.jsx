@@ -140,32 +140,42 @@ const MoveTac = () => {
     <div className="movetac-game">
         <div className="container">
             <h1 className="title">
-            {winner ? (<><span>Congratulations: </span>Player <img src={winner==="x"?cross_icon:circle_icon} alt="winner_icon"/> wins!</>
-  ) : "Move Tac"}</h1>
+                {winner ? (<><span>Congratulations: </span>Player <img src={winner==="x"?cross_icon:circle_icon} alt="winner_icon" draggable="false" /> wins!</>
+                ) : "Move Tac"}</h1>
+            <p className="instruction">
+                {winner !== null && ""}
+                {gamePhase === "Placement" && "Placement Phase: Tap an empty square to place your piece."}
+
+                {gamePhase === "Movement" && !selected &&
+                    "Movement Phase: Select one of your pieces to move."}
+
+                {gamePhase === "Movement" && selected &&
+                    "Tap a highlighted square to move the selected piece."}
+            </p>
             <div className="board">
                 <div className="row1">
                     <div className={`boxes 
                         ${(selected?.r === 0 && selected?.c === 0) && "glow"} 
                         ${isValidMove(0,0) && "valid-move"}`} 
                         onClick={(e) => playMove(e, 0, 0)}>
-                            {(boxes[0][0] === "x") && <img src={cross_icon} alt="X"/>}
-                            {(boxes[0][0] === "o") && <img src={circle_icon} alt="O"/>}
+                            {(boxes[0][0] === "x") && <img src={cross_icon}  alt="X" draggable="false" />} 
+                            {(boxes[0][0] === "o") && <img src={circle_icon}  alt="X" draggable="false" />} 
                     </div>
 
                     <div className={`boxes 
                         ${(selected?.r === 0 && selected?.c === 1) && "glow"} 
                         ${isValidMove(0,1) && "valid-move"}`} 
                         onClick={(e) => playMove(e, 0, 1)}>
-                            {(boxes[0][1] === "x") && <img src={cross_icon} alt="X"/>}
-                            {(boxes[0][1] === "o") && <img src={circle_icon} alt="O"/>}
+                            {(boxes[0][1] === "x") && <img src={cross_icon}  alt="X" draggable="false" />} 
+                            {(boxes[0][1] === "o") && <img src={circle_icon}  alt="X" draggable="false" />} 
                     </div>
 
                     <div className={`boxes 
                         ${(selected?.r === 0 && selected?.c === 2) && "glow"} 
                         ${isValidMove(0,2) && "valid-move"}`} 
                         onClick={(e) => playMove(e, 0, 2)}>
-                            {(boxes[0][2] === "x") && <img src={cross_icon} alt="X"/>}
-                            {(boxes[0][2] === "o") && <img src={circle_icon} alt="O"/>}
+                            {(boxes[0][2] === "x") && <img src={cross_icon}  alt="X" draggable="false" />} 
+                            {(boxes[0][2] === "o") && <img src={circle_icon}  alt="X" draggable="false" />} 
                     </div>
                 </div>
 
@@ -174,24 +184,24 @@ const MoveTac = () => {
                         ${(selected?.r === 1 && selected?.c === 0) && "glow"} 
                         ${isValidMove(1,0) && "valid-move"}`} 
                         onClick={(e) => playMove(e, 1, 0)}>
-                            {(boxes[1][0] === "x") && <img src={cross_icon} alt="X"/>}
-                            {(boxes[1][0] === "o") && <img src={circle_icon} alt="O"/>}
+                            {(boxes[1][0] === "x") && <img src={cross_icon}  alt="X" draggable="false" />} 
+                            {(boxes[1][0] === "o") && <img src={circle_icon}  alt="X" draggable="false" />} 
                     </div>
 
                     <div className={`boxes 
                         ${(selected?.r === 1 && selected?.c === 1) && "glow"} 
                         ${isValidMove(1,1) && "valid-move"}`} 
                         onClick={(e) => playMove(e, 1, 1)}>
-                            {(boxes[1][1] === "x") && <img src={cross_icon} alt="X"/>}
-                            {(boxes[1][1] === "o") && <img src={circle_icon} alt="O"/>}
+                            {(boxes[1][1] === "x") && <img src={cross_icon}  alt="X" draggable="false" />} 
+                            {(boxes[1][1] === "o") && <img src={circle_icon}  alt="X" draggable="false" />} 
                     </div>
 
                     <div className={`boxes 
                         ${(selected?.r === 1 && selected?.c === 2) && "glow"} 
                         ${isValidMove(1,2) && "valid-move"}`} 
                         onClick={(e) => playMove(e, 1, 2)}>
-                            {(boxes[1][2] === "x") && <img src={cross_icon} alt="X"/>}
-                            {(boxes[1][2] === "o") && <img src={circle_icon} alt="O"/>}
+                            {(boxes[1][2] === "x") && <img src={cross_icon}  alt="X" draggable="false" />} 
+                            {(boxes[1][2] === "o") && <img src={circle_icon}  alt="X" draggable="false" />} 
                     </div>
                 </div>
 
@@ -200,24 +210,24 @@ const MoveTac = () => {
                         ${(selected?.r === 2 && selected?.c === 0) && "glow"} 
                         ${isValidMove(2,0) && "valid-move"}`} 
                         onClick={(e) => playMove(e, 2, 0)}>
-                            {(boxes[2][0] === "x") && <img src={cross_icon} alt="X"/>}
-                            {(boxes[2][0] === "o") && <img src={circle_icon} alt="O"/>}
+                            {(boxes[2][0] === "x") && <img src={cross_icon}  alt="X" draggable="false" />} 
+                            {(boxes[2][0] === "o") && <img src={circle_icon}  alt="X" draggable="false" />} 
                     </div>
 
                     <div className={`boxes 
                         ${(selected?.r === 2 && selected?.c === 1) && "glow"} 
                         ${isValidMove(2,1) && "valid-move"}`} 
                         onClick={(e) => playMove(e, 2, 1)}>
-                            {(boxes[2][1] === "x") && <img src={cross_icon} alt="X"/>}
-                            {(boxes[2][1] === "o") && <img src={circle_icon} alt="O"/>}
+                            {(boxes[2][1] === "x") && <img src={cross_icon}  alt="X" draggable="false" />} 
+                            {(boxes[2][1] === "o") && <img src={circle_icon}  alt="X" draggable="false" />} 
                     </div>
 
                     <div className={`boxes 
                         ${(selected?.r === 2 && selected?.c === 2) && "glow"} 
                         ${isValidMove(2,2) && "valid-move"}`} 
                         onClick={(e) => playMove(e, 2, 2)}>
-                            {(boxes[2][2] === "x") && <img src={cross_icon} alt="X"/>}
-                            {(boxes[2][2] === "o") && <img src={circle_icon} alt="O"/>}
+                            {(boxes[2][2] === "x") && <img src={cross_icon}  alt="X" draggable="false" />} 
+                            {(boxes[2][2] === "o") && <img src={circle_icon}  alt="X" draggable="false" />} 
                     </div>
                 </div>
 

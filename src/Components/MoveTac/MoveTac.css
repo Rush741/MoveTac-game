@@ -1,3 +1,9 @@
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 .movetac-game .container {
   background: #574e4e;
   display: flex;
@@ -21,14 +27,22 @@
   padding: 10px 10px 0 10px;
 }
 
+.movetac-game .instruction {
+  margin: 10px 0;
+  font-size: 1.6rem;
+  opacity: 0.75;
+  color: aliceblue;
+  text-shadow: blueviolet;
+  text-align: center;
+}
+
 .movetac-game .board {
-  display: flex;
+  display: flex; 
   height: 600px;
   width: 560px;
   justify-content: center;
   align-items: center;
 }
-
 
 .movetac-game .boxes {
   display: flex;
