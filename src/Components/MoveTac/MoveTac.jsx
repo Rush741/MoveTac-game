@@ -122,6 +122,11 @@ const MoveTac = () => {
         setLock(true);
         setWinner(ch);
         setSelected(null);
+        
+        // HAPTIC FEEDBACK (mobile)
+        if (navigator.vibrate) {
+            navigator.vibrate([60, 30, 120]); 
+        }
     }
 
     const reset = () => {
@@ -140,11 +145,12 @@ const MoveTac = () => {
   return (
     <div className="movetac-game">
         <div className="container">
-            <h1 className="title">
+            <h1 className={`title ${winner && "win-text"}`}>
                 {winner ? (
                     <>
                     🎉 Player{" "}
                     <img
+                        className="win-icon"
                         src={winner === "x" ? cross_icon : circle_icon}
                         alt="winner_icon"
                         draggable="false"
@@ -162,7 +168,7 @@ const MoveTac = () => {
 
                 {winner === null && gamePhase === "Movement" && selected &&
                     "Tap a highlighted square to move the selected piece."}
-                    
+
                 {winner !== null && "                   "}
             </p>
 

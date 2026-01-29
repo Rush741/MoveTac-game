@@ -1,3 +1,31 @@
+@keyframes win-pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes winner-glow {
+  0% { filter: drop-shadow(0 0 0px rgba(0,255,255,0)); }
+  50% { filter: drop-shadow(0 0 15px rgb(17, 197, 44)); }
+  100% { filter: drop-shadow(0 0 0px rgba(0,255,255,0)); }
+}
+
+.win-icon {
+  animation: winner-glow 1s ease-in-out infinite;
+}
+
+.win-text {
+  animation: win-pop 0.4s ease-out;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
 * {
   user-select: none;
   -webkit-user-select: none;
@@ -118,15 +146,17 @@
     margin-top: 0px;
     padding-top: 0px;
     margin: 5px;
+    min-width: 320px;
     
   }
   
   .movetac-game .title img {
-    height: 30px;
+    height: 28px;
     padding: 20px 10px 0 10px;
   }
   
   .movetac-game .instruction {
+    min-width: 250px;
     margin: 10px 0;
     font-size: 1rem;
     opacity: 0.75;
