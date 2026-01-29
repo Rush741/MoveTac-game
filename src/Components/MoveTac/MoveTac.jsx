@@ -121,6 +121,7 @@ const MoveTac = () => {
     const pauseGame = (ch) => {
         setLock(true);
         setWinner(ch);
+        setSelected(null);
     }
 
     const reset = () => {
@@ -140,8 +141,18 @@ const MoveTac = () => {
     <div className="movetac-game">
         <div className="container">
             <h1 className="title">
-                {winner ? (<><span>Congratulations: </span>Player <img src={winner==="x"?cross_icon:circle_icon} alt="winner_icon" draggable="false" /> wins!</>
-                ) : "Move Tac"}</h1>
+                {winner ? (
+                    <>
+                    🎉 Player{" "}
+                    <img
+                        src={winner === "x" ? cross_icon : circle_icon}
+                        alt="winner_icon"
+                        draggable="false"
+                    />{" "}
+                    wins!
+                    </>
+                ) : "Move Tac"}
+            </h1>
             <p className="instruction">
                 {winner === null && gamePhase === "Placement" &&
                     "Placement Phase: Tap an empty square to place your piece."}
@@ -151,9 +162,11 @@ const MoveTac = () => {
 
                 {winner === null && gamePhase === "Movement" && selected &&
                     "Tap a highlighted square to move the selected piece."}
+                    
+                {winner !== null && "                   "}
             </p>
 
-            <div className="board">
+            <div className={`board ${winner ? "game-over" : ""}`}>
                 <div className="row1">
                     <div className={`boxes 
                         ${(selected?.r === 0 && selected?.c === 0) && "glow"} 
@@ -233,7 +246,7 @@ const MoveTac = () => {
                 </div>
 
             </div>
-            <button className="reset" onClick={reset}>Reset</button>
+            <button className={`${winner? "reset-game-over": "reset"}`} onClick={reset}>{(winner)? "Play Again":"Reset"}</button>
         </div>
     </div>
   )
