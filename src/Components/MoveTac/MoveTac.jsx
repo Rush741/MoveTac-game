@@ -143,15 +143,16 @@ const MoveTac = () => {
                 {winner ? (<><span>Congratulations: </span>Player <img src={winner==="x"?cross_icon:circle_icon} alt="winner_icon" draggable="false" /> wins!</>
                 ) : "Move Tac"}</h1>
             <p className="instruction">
-                {winner !== null && ""}
-                {gamePhase === "Placement" && "Placement Phase: Tap an empty square to place your piece."}
+                {winner === null && gamePhase === "Placement" &&
+                    "Placement Phase: Tap an empty square to place your piece."}
 
-                {gamePhase === "Movement" && !selected &&
+                {winner === null && gamePhase === "Movement" && !selected &&
                     "Movement Phase: Select one of your pieces to move."}
 
-                {gamePhase === "Movement" && selected &&
+                {winner === null && gamePhase === "Movement" && selected &&
                     "Tap a highlighted square to move the selected piece."}
             </p>
+
             <div className="board">
                 <div className="row1">
                     <div className={`boxes 
